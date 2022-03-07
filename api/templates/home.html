@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drugs </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body { 
+                padding-top: 65px; 
+        }
+
+        .footer-basic {
+        padding:40px 0;
+        background-color:#ffffff;
+        color:#4b4c4d;
+        }
+
+        .footer-basic ul {
+        padding:0;
+        list-style:none;
+        text-align:center;
+        font-size:18px;
+        line-height:1.6;
+        margin-bottom:0;
+        }
+
+        .footer-basic li {
+        padding:0 10px;
+        }
+
+        .footer-basic ul a {
+        color:inherit;
+        text-decoration:none;
+        opacity:0.8;
+        }
+
+        .footer-basic ul a:hover {
+        opacity:1;
+        }
+
+        .footer-basic .social {
+        text-align:center;
+        padding-bottom:25px;
+        }
+
+        .footer-basic .social > a {
+        font-size:24px;
+        width:40px;
+        height:40px;
+        line-height:40px;
+        display:inline-block;
+        text-align:center;
+        border-radius:50%;
+        border:1px solid #ccc;
+        margin:0 8px;
+        color:inherit;
+        opacity:0.75;
+        }
+
+        .footer-basic .social > a:hover {
+        opacity:0.9;
+        }
+
+        .footer-basic .copyright {
+        margin-top:15px;
+        text-align:center;
+        font-size:13px;
+        color:#aaa;
+        margin-bottom:0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--- Create Navbar with logo, black-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Drugs consumption quantified</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">About<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'drug_test' %}">AddictTest</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <div class="container">
+            <h1 class="display-3">Drugs consumption quantified</h1>
+            <p>Various studies have outlined that personality attributes are related with drug consumption. The objective of this project is to predict the probability of the consumption of different licit and illicit drugs on the basis of personality.</p>
+            <p>We use the UCI Drug consumption (quantified) Data Set, you can get more information about this dataset by using the link below.</p>
+            <p><a class="btn btn-primary btn-lg" href="https://archive.ics.uci.edu/ml/datasets/Drug+consumption+%28quantified%29" role="button">Go to UCI dataset &raquo;</a></p>
+          </div>
+        </div>
+  
+        <div class="container">
+          <!-- Example row of columns -->
+          <div class = "text-center">
+            <h1>Personnality test used</h1>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-4">
+              <h2>NEO-FFI-R</h2>
+              <p>The Big Five personality test measures the five personality factors that psychologists have determined are core to our personality makeup.</p>
+              <p><a class="btn btn-secondary" href="https://www.truity.com/test/big-five-personality-test" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+              <h2>BIS11</h2>
+              <p>Barratt Impulsiveness Scale (BIS-11) is a questionnaire designed to assess the personality/behavioral construct of impulsiveness.</p>
+              <p><a class="btn btn-secondary" href="https://psytests.org/emotional/bis11en.html" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+              <h2>ImpSS</h2>
+              <p>The ImpSS scale is a 19 question true-false scale assessing various personality characteristics and behaviors related to impulsivity and sensation seeking, and it is scored by summing the items that are consistent with impulsivity or sensation seeking.</p>
+              <p><a class="btn btn-secondary" href="https://psytests.org/personal/zkpqccen-run.html" role="button">View details &raquo;</a></p>
+            </div>
+          </div>
+  
+          <hr>
+  
+        </div> <!-- /container -->
+  
+    </main>
+
+    <footer class="page-footer font-small blue">
+        <div class="footer-basic">
+            <footer>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="{% url 'home' %}">About</a></li>
+                    <li class="list-inline-item"><a href="{% url 'drug_test' %}">AddictTest</a></li>
+                </ul>
+                <p class="copyright">Drugs consumption quantified - Flavien DESEURE--CHARRON - Benjamin DEMOUGE - 2022</p>
+            </footer>
+        </div>
+    </footer>
+</body>
+
+</html>

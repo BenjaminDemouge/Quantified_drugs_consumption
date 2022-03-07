@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drugs </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body { 
+                padding-top: 65px; 
+        }
+        .test{
+            padding-left: 30%;
+            padding-right: 30%;
+        }
+        .container{
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        .footer-basic {
+        padding:40px 0;
+        background-color:#ffffff;
+        color:#4b4c4d;
+        }
+
+        .footer-basic ul {
+        padding:0;
+        list-style:none;
+        text-align:center;
+        font-size:18px;
+        line-height:1.6;
+        margin-bottom:0;
+        }
+
+        .footer-basic li {
+        padding:0 10px;
+        }
+
+        .footer-basic ul a {
+        color:inherit;
+        text-decoration:none;
+        opacity:0.8;
+        }
+
+        .footer-basic ul a:hover {
+        opacity:1;
+        }
+
+        .footer-basic .social {
+        text-align:center;
+        padding-bottom:25px;
+        }
+
+        .footer-basic .social > a {
+        font-size:24px;
+        width:40px;
+        height:40px;
+        line-height:40px;
+        display:inline-block;
+        text-align:center;
+        border-radius:50%;
+        border:1px solid #ccc;
+        margin:0 8px;
+        color:inherit;
+        opacity:0.75;
+        }
+
+        .footer-basic .social > a:hover {
+        opacity:0.9;
+        }
+
+        .footer-basic .copyright {
+        margin-top:15px;
+        text-align:center;
+        font-size:13px;
+        color:#aaa;
+        margin-bottom:0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--- Create Navbar with logo, black-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Drugs consumption quantified</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'drug_test' %}">AddictTest</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Results<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <!--- Create Forms -->
+    <div class="test">
+        <h1 class="text-center">Results</h1>        
+        <div class="h-50 p-3 mb-2 bg-warning text-dark">
+            <h3 class="text-center">Disclaimer</h3>
+            <p>The model have been trained on a small dataset which not completely represents the population, the results can be inaccurate</p>
+            <p>This website is not a substitute for professional medical advice. Always consult with your doctor before starting any new treatment.
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">Result</th>
+                <th scope="col" class="text-center">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="text-center">Addicted</th>
+                    <td class="text-center">Used last month</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Not addicted</th>
+                    <td class="text-center">Never used in the last month</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Used</th>
+                    <td class="text-center">Used</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Never used</th>
+                    <td class="text-center">Never used</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Daily addicted</th>
+                    <td class="text-center">Used yesterday</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Not daily addicted</th>
+                    <td class="text-center">Not used yesterday</td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="container">
+        <table class="table table-hover table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">Drug</th>
+                <th scope="col" class="text-center">Diagnostic</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="text-center">Alcohol</th>
+                    <td class="text-center">{{ Alcohol }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Amphet</th>
+                    <td class="text-center">{{ Amphet }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Amyl</th>
+                    <td class="text-center">{{ Amyl }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Benzos</th>
+                    <td class="text-center">{{ Benzos }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Caff</th>
+                    <td class="text-center">{{ Caff }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Cannabis</th>
+                    <td class="text-center">{{ Cannabis }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Coke</th>
+                    <td class="text-center">{{ Coke }}</td> 
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Crack</th>
+                    <td class="text-center">{{ Crack }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ecstasy</th>
+                    <td class="text-center">{{ Ecstasy }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Heroin</th>
+                    <td class="text-center">{{ Heroin }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Ketamine</th>
+                    <td class="text-center">{{ Ketamine }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Legalh</th>
+                    <td class="text-center">{{ Legalh }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">LSD</th>
+                    <td class="text-center">{{ LSD }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Meth</th>
+                    <td class="text-center">{{ Meth }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Mushrooms</th>
+                    <td class="text-center">{{ Mushrooms }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">Nicotine</th>
+                    <td class="text-center">{{ Nicotine }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-center">VSA</th>
+                    <td class="text-center">{{ VSA }}</td>
+                </tr>
+    
+            </tbody>
+          </table>
+    </div>
+
+    <footer class="page-footer font-small blue">
+        <div class="footer-basic">
+            <footer>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="{% url 'home' %}">About</a></li>
+                    <li class="list-inline-item"><a href="{% url 'drug_test' %}">AddictTest</a></li>
+                    <li class="list-inline-item"><a href="#">Results</a></li>
+                </ul>
+                <p class="copyright">Drugs consumption quantified - Flavien DESEURE--CHARRON - Benjamin DEMOUGE - 2022</p>
+            </footer>
+        </div>
+    </footer>
+</body>
+
+</html>

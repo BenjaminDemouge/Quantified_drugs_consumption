@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drugs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body { 
+                padding-top: 65px; 
+        }
+        
+        .test{
+            padding-left: 30%;
+            padding-right: 30%;
+        }
+        .footer-basic {
+        padding:40px 0;
+        background-color:#ffffff;
+        color:#4b4c4d;
+        }
+
+        .footer-basic ul {
+        padding:0;
+        list-style:none;
+        text-align:center;
+        font-size:18px;
+        line-height:1.6;
+        margin-bottom:0;
+        }
+
+        .footer-basic li {
+        padding:0 10px;
+        }
+
+        .footer-basic ul a {
+        color:inherit;
+        text-decoration:none;
+        opacity:0.8;
+        }
+
+        .footer-basic ul a:hover {
+        opacity:1;
+        }
+
+        .footer-basic .social {
+        text-align:center;
+        padding-bottom:25px;
+        }
+
+        .footer-basic .social > a {
+        font-size:24px;
+        width:40px;
+        height:40px;
+        line-height:40px;
+        display:inline-block;
+        text-align:center;
+        border-radius:50%;
+        border:1px solid #ccc;
+        margin:0 8px;
+        color:inherit;
+        opacity:0.75;
+        }
+
+        .footer-basic .social > a:hover {
+        opacity:0.9;
+        }
+
+        .footer-basic .copyright {
+        margin-top:15px;
+        text-align:center;
+        font-size:13px;
+        color:#aaa;
+        margin-bottom:0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--- Create Navbar with logo, black-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Drugs consumption quantified</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">About</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'drug_test' %}">AddictTest<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <!--- Create Forms -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Get your addiction score!</h1>
+            </div>
+        </div>
+        <form action="score\" method="get">
+            <h3>Basic Informations</h3>
+
+            <!-- Create bar to select age -->         
+            <div class="form-group">
+                <label for="age">Age</label>   
+                <input type="number" name="age" min="18" max="100" value="18"/>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender">
+                    <option>Man</option>
+                    <option>Woman</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Education</label>
+                <select class="form-control" id="education" name="education">
+                    <option>Left school before 16 years</option>
+                    <option>Left school at 16 years</option>
+                    <option>Left school at 17 years</option>
+                    <option>Left school at 18 years</option>
+                    <option>Some college or university, no certificate or degree</option>
+                    <option>Professional certificate/ diploma</option>
+                    <option>University degree</option>
+                    <option>Master's degree</option>
+                    <option>Doctoral degree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select class="form-control" id="country" name="country">
+                    <option>Australia</option>
+                    <option>Canada</option>
+                    <option>New Zealand</option>
+                    <option>Other</option>
+                    <option>Republic of Ireland</option>
+                    <option>UK</option>
+                    <option>USA</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ethnicity">Ethnicity</label>
+                <select class="form-control" id="ethnicity" name="ethnicity">
+                    <option>Asian</option>
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Mixed-Black/Asian</option>
+                    <option>Mixed-White/Black</option>
+                    <option>Mixed-White/Asian</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            
+            <h3>Your personality</h3>
+            <p>This evaluation assumed that we can infer your tendency to be drug addict with your personality. There are 3 tests 
+                to evaluate your personality. If you haven't done these tests before, you can just infer the score.</p>
+            </p>
+            <!-- Create slide bar to select impulsivity and display value of slide bar -->
+            <h5>Big Five Test</h5>
+            <p>The Big Five personality test measures the five personality factors that psychologists have determined are core to our personality makeup.</p>
+            <a href=https://www.truity.com/test/big-five-personality-test class="btn btn-info">Do the test</a> 
+            <br/>
+            <br/>               
+            <div class="form-group">
+                <h6>Neuroticism</h6>
+                <p>How sensitive a person is to stress and negative emotional triggers.</p>
+                <input type="range" class="form-control" id="nscore" name="nscore" min="12" max="60"
+                    value="0" oninput="this.nextElementSibling.value = this.value">
+                <output for="nscore" name="nscore">12</output>
+            </div>
+            <div class="form-group">
+                <h6>Extraversion</h6>
+                <p>How much a person is energized by the outside world.</p>
+                <input type="range" class="form-control" id="escore" name="escore" min="16" max="59"
+                    value="0" oninput="this.nextElementSibling.value = this.value">
+                    <output for="escore" name="escore">16</output>
+            </div>
+            <div class="form-group">
+                <h6>Openness</h6>
+                <p>How open a person is to new ideas and experiences.</p>
+                <input type="range" class="form-control" id="oscore" name="oscore" min="24" max="60"
+                    value="0" oninput="this.nextElementSibling.value = this.value">
+                    <output for="oscore" name="oscore">24</output>
+            </div>
+            <div class="form-group">
+                <h6>Agreeableness</h6>
+                <p>How much a person puts others' interests and needs ahead of their own.</p>
+                <input type="range" class="form-control" id="ascore" name="ascore" min="12" max="60"
+                    value="0" oninput="this.nextElementSibling.value = this.value">
+                    <output for="ascore" name="ascore">12</output>
+            </div>
+            <div class="form-group">
+                <h6>Conscientiousness</h6>
+                <p>How goal-directed, persistent, and organized a person is.</p>
+                <input type="range" class="form-control" id="cscore" name="cscore" min="17" max="57"
+                    value="0" oninput="this.nextElementSibling.value = this.value ">
+                    <output for="cscore" name="cscore">17</output>
+            </div>
+            
+            <h5>Impulsivity</h5>                
+            <div class="form-group">
+                <p>The Barratt Impulsiveness Scale (BIS-11; Patton et al., 1995) is a questionnaire designed to assess the personality/behavioral construct of impulsiveness.  It is the most widely cited instrument for the assessment of impulsiveness and has been used to advance our understanding of this construct and its relationship to other clinical phenomena for 50 years (for review see Stanford et al., 2009).</p>
+                <a href=https://psytests.org/emotional/bis11en.html class="btn btn-info">Do the test</a> 
+                <input type="range" class="form-control" id="impulsivity" name="impulsivity" min="1" max="10"
+                    value="0" oninput="this.nextElementSibling.value = ((this.value < 4) ? 'Faible: '+this.value : ((this.value < 8) ? 'Moyen: '+this.value : 'Elevé: '+this.value))">
+                <output for="impulsivity" name="impulsivity">Faible</output>
+            </div>
+
+            <h5>Impulsive Sensation Seeking</h5>                
+            <div class="form-group">
+                <p>The ImpSS scale is a 19 question true-false scale assessing various personality characteristics and behaviors related to impulsivity and sensation seeking, and it is scored by summing the items that are consistent with impulsivity or sensation seeking. Thus, scores for this scale range from 0 to 19.</p>
+                <a href=https://psytests.org/personal/zkpqccen-run.html class="btn btn-info">Do the test</a> 
+                <p class="text-warning">Take only the ImpSS value</p>
+                <input type="range" class="form-control" id="SS" name="SS" min="1" max="11"
+                    value="0" oninput="this.nextElementSibling.value = ((this.value < 4) ? 'Faible: '+this.value : ((this.value < 8) ? 'Moyen: '+this.value : 'Elevé: '+this.value))">
+                <output for="SS" name="SS">Faible</output>
+            </div>
+            
+            <!-- Valid button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <footer class="page-footer font-small blue">
+        <div class="footer-basic">
+            <footer>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="{% url 'home' %}">About</a></li>
+                    <li class="list-inline-item"><a href="{% url 'drug_test' %}">AddictTest</a></li>
+                </ul>
+                <p class="copyright">Drugs consumption quantified - Flavien DESEURE--CHARRON - Benjamin DEMOUGE - 2022</p>
+            </footer>
+        </div>
+    </footer>
+</body>
+
+</html>
